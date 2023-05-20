@@ -5,3 +5,13 @@ body {
 .navigation {
   background-color: #DDDDDD;
 }
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid {
+  background-color: #DDDDDD;
+  padding: 10px;
+}
