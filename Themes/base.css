@@ -9,6 +9,7 @@ body {
 .content {
   display: flex;
   flex-wrap: wrap;
+  gap: 2vh;
   flex-direction: row;
   justify-content: center;
 }
