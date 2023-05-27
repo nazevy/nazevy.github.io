@@ -15,3 +15,7 @@ body {
   background-color: #DDDDDD;
   padding: 10px;
 }
+
+.grid-image img {
+  height: 20vw;
+}
