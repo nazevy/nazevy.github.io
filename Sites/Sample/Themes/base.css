@@ -21,4 +21,5 @@ body {
 
 .grid-image img {
   height: 20vw;
+  min-height: 12vw;
 }
