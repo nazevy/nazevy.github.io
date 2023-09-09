@@ -1,7 +1,10 @@
 <html>
   <head>
-    <title>Basic webpage</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
     <link rel="stylesheet" href="../Themes/base.css">
+    <link rel="stylesheet" href="" id="theme">
   </head>
   
   <body>
@@ -10,6 +13,13 @@
         <a>Home</a>
         <a>About</a>
         <a>Feedback</a>
+        <div class="dpdwn">
+          <span class="dpdwn-btn">Change theme</span>
+          <div class="dpdwn-content">
+            <span onclick="changeTheme(this.innerText)">Blue</span>
+            <span onclick="changeTheme(this.innerText)">Default</span>
+          </div>
+        </div>
       </div>
       
       <div class="content">
