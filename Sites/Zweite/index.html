@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <!--<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet">-->
+<style>
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #23232e;
+    --bg-secondary: #141418;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* padding & border included in width & height */
+}
+
+body {
+    color: var(--text-primary);
+    background: linear-gradient(to bottom, #000000, #070013);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    height: fit-content;
+}
+
+*::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+*::-webkit-scrollbar-track {
+    background: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #6649b8;
+}
+
+/*.navbar {
+    width: 5rem;
+    height: 100vh;
+    position: fixed;
+    background-color: var(--bg-primary);
+}*/
+
+nav {
+    top: 0;
+    bottom: 0;
+    background: rgba(255,255,255,0.25);
+    padding: 1em;
+    left: -9.5rem;
+    position: fixed;
+    transition: 500ms ease-in-out;
+    backdrop-filter: blur(10px);
+    overflow: auto;
+}
+
+nav ul {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+nav:hover {
+    left: 0%;
+}
+
+/*
+nav ul li {
+    display: flex;
+    flex-direction: row-reverse;
+}
+*/
+
+nav ul li span:second-child {
+    float: right;
+}
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" stroke="none" fill="white" viewBox="0 0 24 24" width="15" height="15"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+                </span>
+                <span>First-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" stroke="none" fill="white" viewBox="0 0 24 24" width="15" height="15"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+                </span>
+                <span>Second-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="Outline" stroke="none" fill="white" viewBox="0 0 24 24" width="15" height="15"><path d="M12,12A6,6,0,1,0,6,6,6.006,6.006,0,0,0,12,12ZM12,2A4,4,0,1,1,8,6,4,4,0,0,1,12,2Z"/><path d="M12,14a9.01,9.01,0,0,0-9,9,1,1,0,0,0,2,0,7,7,0,0,1,14,0,1,1,0,0,0,2,0A9.01,9.01,0,0,0,12,14Z"/></svg>
+                </span>                
+                <span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>Third-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+            <li>
+                <span>icon</span><span>nth-Profile</span>
+                <ul>
+                    <li>Home</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+        <h3>Hello</h3>
+        <p>Hey there!</p>
+    </main>
+</body>
+</html>
