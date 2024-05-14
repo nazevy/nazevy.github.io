@@ -18,8 +18,22 @@
       font-size: 21px;
       font-family: Helvetica, sans-serif;
     }
+    .dotted-fill-circle {
+      --d: 4px; //diameter of the circle
+
+      background: radial-gradient(
+        circle at
+        var(--d)
+        var(--d),
+
+      #000 calc(var(--d) - 1px),
+      #000 var(--d)
+      )
+      0 0 /50px 50px;
+    }
   </style>
   <body>
+    <span class="dotted-fill-square'></span>
     <p>Redirecting...</p>
   </body>
 </html>
