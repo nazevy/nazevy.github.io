@@ -23,3 +23,7 @@ body {
   height: 20vw;
   min-height: 12vw;
 }
+
+.span[onclick~="changeTheme"]:hover {
+  cursor: pointer;
+}
