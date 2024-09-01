@@ -24,6 +24,6 @@ body {
   min-height: 12vw;
 }
 
-span[onclick$="changeTheme"]:hover {
+a:hover {
   cursor: pointer;
 }
