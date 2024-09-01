@@ -1,11 +1,11 @@
-body {
+.blue {
   background-color: blue;
 }
 
-.grid {
+.blue .grid {
   padding: 0;
 }
 
-.grid-title {
+.blue .grid-title {
   padding: 10px;
 }
