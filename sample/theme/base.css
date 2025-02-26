@@ -4,6 +4,72 @@ body {
 
 .navigation {
   background-color: #DDDDDD;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+}
+
+.navbar a:hover {
+  background-color: #575757;
+}
+
+.navbar .menu {
+  display: flex; /* Show the menu by default */
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+/* Styles for desktop */
+@media screen and (min-width: 769px) {
+  .navbar a {
+    display: inline-block; /* Show links inline on desktop */
+  }
+  .hamburger {
+    display: none; /* Hide hamburger on desktop */
+  }
+  .navbar .menu {
+    display: flex; /* Ensure menu is visible on desktop */
+  }
+}
+
+/* Styles for mobile */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  .navbar .menu {
+    display: none; /* Hide the menu by default on mobile */
+    flex-direction: column;
+  }
+
+  .navbar.responsive .menu {
+    display: flex; /* Show the menu when responsive class is added */
+  }
 }
 
 .content {
