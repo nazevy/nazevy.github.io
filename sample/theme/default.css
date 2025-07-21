@@ -9,6 +9,7 @@ body {
 
 .grid-image img {
   height: 20vw;
+  min-width: 100%;
   min-height: 12vw;
 }
 
