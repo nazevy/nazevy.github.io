@@ -78,6 +78,8 @@ body {
   gap: 1.2vw;
   flex-direction: row;
   justify-content: center;
+  margin-left: 1.2vw;
+  margin-right: 1.2vw;
 }
 
 .grid {
@@ -86,8 +88,8 @@ body {
 }
 
 .grid-image img {
-  height: 20vw;
-  min-height: 12vw;
+  height: 15vw;
+  min-height: 22vh;
 }
 
 a:hover {
