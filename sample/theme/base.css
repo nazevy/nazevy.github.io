@@ -14,7 +14,7 @@ body {
 }
 
 .navigation a {
-  color: white;
+  color: #FFFFFF;
   text-decoration: none;
   padding: 14px 20px;
   display: block;
@@ -39,7 +39,7 @@ body {
 .hamburger div {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: #FFFFFF;
   margin: 4px 0;
 }
 
