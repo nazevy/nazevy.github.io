@@ -13,18 +13,18 @@ body {
   border-radius: 10px;
 }
 
-.navbar a {
+.navigation a {
   color: white;
   text-decoration: none;
   padding: 14px 20px;
   display: block;
 }
 
-.navbar a:hover {
+.navigation a:hover {
   background-color: #575757;
 }
 
-.navbar .menu {
+.navigation .menu {
   display: flex; /* Show the menu by default */
   width: 100%;
 }
@@ -45,13 +45,13 @@ body {
 
 /* Styles for desktop */
 @media screen and (min-width: 769px) {
-  .navbar a {
+  .navigation a {
     display: inline-block; /* Show links inline on desktop */
   }
   .hamburger {
     display: none; /* Hide hamburger on desktop */
   }
-  .navbar .menu {
+  .navigation .menu {
     display: flex; /* Ensure menu is visible on desktop */
   }
 }
@@ -62,12 +62,12 @@ body {
     display: flex; /* Show hamburger on mobile */
   }
 
-  .navbar .menu {
+  .navigation .menu {
     display: none; /* Hide the menu by default on mobile */
     flex-direction: column;
   }
 
-  .navbar.responsive .menu {
+  .navigation.responsive .menu {
     display: flex; /* Show the menu when responsive class is added */
   }
 }
