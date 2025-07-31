@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+}
+
+.navigation {
+  background-color: #DDDDDD;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+
+.navigation a {
+  text-decoration: none;
+  padding: 14px 20px;
+  display: block;
+}
+
+.navigation a:hover {
+  background-color: #575757;
+}
+
+.navigation .menu {
+  display: flex; /* Show the menu by default */
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #FFFFFF;
+  margin: 4px 0;
+}
+
+/* Styles for desktop */
+@media screen and (min-width: 769px) {
+  .navigation a {
+    display: inline-block; /* Show links inline on desktop */
+  }
+  .hamburger {
+    display: none; /* Hide hamburger on desktop */
+  }
+  .navigation .menu {
+    display: flex; /* Ensure menu is visible on desktop */
+  }
+}
+
+/* Styles for mobile */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  .navigation .menu {
+    display: none; /* Hide the menu by default on mobile */
+    flex-direction: column;
+  }
+
+  .navigation.responsive .menu {
+    display: flex; /* Show the menu when responsive class is added */
+  }
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2vw;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 4.2vw;
+  margin-right: 4.2vw;
+}
+
+.grid {
+  background-color: #DDDDDD;
+  padding: 10px;
+}
+
+.grid-image img {
+  height: 15vw;
+  min-height: 22vh;
+}
+
+a:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.blue {
+  background-color: blue;
+}
+
+.blue .grid {
+  padding: 0;
+}
+
+.blue .grid-title {
+  padding: 10px;
+}
