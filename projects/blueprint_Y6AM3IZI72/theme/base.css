@@ -3,7 +3,6 @@ body {
 }
 
 .navigation {
-  background-color: #DDDDDD;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -95,4 +94,48 @@ body {
 
 a:hover {
   cursor: pointer;
+}
+
+/* Dropdown container */
+.dpdwn {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown button */
+.dpdwn-btn {
+  cursor: pointer;
+  padding: 10px;
+  color: #fff;
+  background-color: #333;
+  border-radius: 6px;
+}
+
+/* Hidden dropdown content */
+.dpdwn-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 120px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Dropdown links */
+.dpdwn-content a {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.dpdwn-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown when active */
+.dpdwn.active .dpdwn-content {
+  display: block;
 }
