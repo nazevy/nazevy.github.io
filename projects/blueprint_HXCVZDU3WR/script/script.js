@@ -5,8 +5,7 @@ function changeTheme(color) {
   document.getElementById('theme').href = `../theme/${theme}.css`;
 }
 
-// Toggle mobile nav
-document.getElementById('hamburger')?.addEventListener('click', () => {
+document.getElementById('nav-toggle')?.addEventListener('click', () => {
   document.getElementById('navigation')?.classList.toggle('responsive');
 });
 
