@@ -117,16 +117,27 @@ body {
   }
 }
 
-.content {
+.content, section {
   display: flex;
-  flex: 1;
   margin: 7px;
   flex-wrap: wrap;
   column-gap: clamp(1rem, 2vw, 2rem);
-  row-gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  row-gap: clamp(0.75rem, 2vw, 2rem);
   flex-direction: row;
   justify-content: center;
   overflow-x: auto;
+}
+.content {
+  flex: 1;  /* Allows the content div to grow and fill available space */
+}
+section {
+  flex: 0 1 auto;
+}
+
+section h2 {
+  width: 100%;  /* Ensures the title spans the entire width of the section */
+  text-align: center; /* Optional: Aligns the title text */
+  margin: 0;
 }
 
 .grid {

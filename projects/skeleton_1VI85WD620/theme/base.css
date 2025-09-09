@@ -35,12 +35,6 @@ body {
   background-color: #575757;
 }
 
-section {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-}
-
 .navigation .menu {
   display: flex; /* Show the menu by default */
   width: 100%;
@@ -123,16 +117,20 @@ section {
   }
 }
 
-.content {
+.content, section {
   display: flex;
   flex: 1;
   margin: 7px;
   flex-wrap: wrap;
   column-gap: clamp(1rem, 2vw, 2rem);
-  row-gap: clamp(0.75rem, 1.5vw, 1.5rem);
+  row-gap: clamp(0.75rem, 2vw, 2rem);
   flex-direction: row;
   justify-content: center;
   overflow-x: auto;
+}
+
+section {
+  flex: 0 1 auto;
 }
 
 .grid {
@@ -195,13 +193,13 @@ a:hover, .dpdwn {
   display: block;
 }
 
-body::-webkit-scrollbar {
+.content::-webkit-scrollbar {
   background-color: #F5F5F5;
   width: 3.5px;  /* Vertical scrollbar width */
   height: 3.5px; /* Horizontal scrollbar height */
 }
 
-body::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb {
   background-color: #999999;
   border-radius: 20px;
 }
