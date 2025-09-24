@@ -161,6 +161,10 @@ section h2 {
   overflow: hidden;
 }
 
+a {
+  color: #FFFFFF;
+}
+
 a:hover, .dpdwn {
   cursor: pointer;
 }
