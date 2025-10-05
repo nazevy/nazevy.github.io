@@ -1,0 +1,13 @@
+body {
+  background-color: #000000;
+}
+
+.grid {
+  background-color: #DDDDDD;
+  padding: 10px;
+}
+
+.navigation {
+  color: #FFFFFF;
+  background-color: #150050;
+}

@@ -1,6 +1,12 @@
 body {
   margin: 0;
+  font-family: Menlo, Consolas, "Lucida Console", "Courier New", monospace;
+  line-height: 1.5;
 }
+
+/*.page {
+  max-width: 80ch; // fits ~80 characters per line; based on '0' in current font
+}*/
 
 *,
 *::before,
@@ -10,7 +16,7 @@ body {
 
 .page {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .navigation {
@@ -18,11 +24,10 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center; /* Check if breaks other contents in nav */
-  background-color: #333;
   padding: 5px;
   margin: 5px;
   border-radius: 10px;
-  color: #FFFFFF;
+  overflow-y: auto;
 }
 
 .navigation a, .dpdwn-btn {
@@ -31,24 +36,19 @@ body {
   display: block;
 }
 
-.navigation a:hover, .dpdwn:hover {
-  background-color: #575757;
-}
-
 .navigation .menu {
   display: flex; /* Show the menu by default */
   width: 100%;
   flex-direction: column;
 }
 
+.navigation a:hover, .dpdwn:hover {
+  border-radius: 6px;
+}
+
 /* Default: desktop, hide toggle area */
 .nav-toggle-area {
   display: none;
-}
-
-/* Mobile/tablet: make it a big hitbox */
-@media (max-width: 768px) {
-
 }
 
 .hamburger {
@@ -141,7 +141,6 @@ section h2 {
 }
 
 .grid {
-  background-color: #DDDDDD;
   padding: 10px;
    /*grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
   flex: 1 1 clamp(180px, 25%, 300px);
@@ -204,13 +203,25 @@ a:hover, .dpdwn {
   display: block;
 }
 
-.content::-webkit-scrollbar {
-  background-color: #F5F5F5;
+.content::-webkit-scrollbar, .navigation::-webkit-scrollbar {
   width: 3.5px;  /* Vertical scrollbar width */
   height: 3.5px; /* Horizontal scrollbar height */
 }
 
-.content::-webkit-scrollbar-thumb {
-  background-color: #999999;
+.content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
   border-radius: 20px;
+}
+
+/* Make first two grid items 50% each on wide screens */
+section .grid:nth-of-type(1),
+section .grid:nth-of-type(2) {
+    flex: 1 1 45%;
+}
+
+/* Stack first two grid items on small screens */
+@media (max-width: 407px) {
+    section .grid:nth-of-type(1),
+    section .grid:nth-of-type(2) {
+        flex: 1 1 100%;
+    }
 }

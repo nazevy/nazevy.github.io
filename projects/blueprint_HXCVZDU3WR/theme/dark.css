@@ -1,29 +1,29 @@
 body {
-  background-color: #FFF;
+  color: #FFF;
+  background-color: #000;
 }
 
 .grid {
-  background-color: #DDD;
-  padding: 10px;
+  background-color: #17153B;
 }
 
 .navigation {
   color: #FFF;
-  background-color: #333;
+  background-color: #17153B;
 }
 
 .navigation a:hover, .dpdwn:hover {
   background-color: #575757;
 }
 
-.dpdwn-content a:hover {
-  background-color: #F1F1F1;
+#section0 {
+  background-color: #000;
 }
 
 .content::-webkit-scrollbar, .navigation::-webkit-scrollbar {
-  background-color: #F5F5F5;
+  background-color: #000;
 }
 
 .content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
-  background-color: #999999;
+  background-color: #FFF;
 }
