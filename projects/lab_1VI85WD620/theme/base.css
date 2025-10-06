@@ -1,6 +1,12 @@
 body {
   margin: 0;
+  font-family: Menlo, Consolas, "Lucida Console", "Courier New", monospace;
+  line-height: 1.5;
 }
+
+/*.page {
+  max-width: 80ch; // fits ~80 characters per line; based on '0' in current font
+}*/
 
 *,
 *::before,
@@ -10,7 +16,7 @@ body {
 
 .page {
   display: flex;
-  height: 100vh;
+  height: 100dvh;
 }
 
 .navigation {
@@ -18,11 +24,10 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center; /* Check if breaks other contents in nav */
-  background-color: #333;
   padding: 5px;
   margin: 5px;
   border-radius: 10px;
-  color: #FFFFFF;
+  overflow-y: auto;
 }
 
 .navigation a, .dpdwn-btn {
@@ -31,24 +36,19 @@ body {
   display: block;
 }
 
-.navigation a:hover, .dpdwn:hover {
-  background-color: #575757;
-}
-
 .navigation .menu {
   display: flex; /* Show the menu by default */
   width: 100%;
   flex-direction: column;
 }
 
+.navigation a:hover, .dpdwn:hover {
+  border-radius: 6px;
+}
+
 /* Default: desktop, hide toggle area */
 .nav-toggle-area {
   display: none;
-}
-
-/* Mobile/tablet: make it a big hitbox */
-@media (max-width: 768px) {
-
 }
 
 .hamburger {
@@ -119,7 +119,6 @@ body {
 
 .content, section {
   display: flex;
-  flex: 1;
   margin: 7px;
   flex-wrap: wrap;
   column-gap: clamp(1rem, 2vw, 2rem);
@@ -128,17 +127,47 @@ body {
   justify-content: center;
   overflow-x: auto;
 }
-
+.content {
+  flex: 1;  /* Allows the content div to grow and fill available space */
+}
 section {
   flex: 0 1 auto;
 }
 
-.grid {
-  background-color: #DDDDDD;
-  padding: 10px;
-   /*grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
-  flex: 1 1 clamp(180px, 25%, 300px);
+section h2 {
+  width: 100%;  /* Ensures the title spans the entire width of the section */
+  text-align: center; /* Optional: Aligns the title text */
+  margin: 0;
 }
+
+.grid {
+  padding: 10px;
+  /* grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
+  flex: 1 1 clamp(180px, 25%, 300px);
+  /* display: grid;  // For bottom-up (doesn't work)
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: row dense;
+  direction: rtl; */
+}
+
+/* Make first two grid items 50% each on wide screens */
+section .grid:nth-of-type(1),
+section .grid:nth-of-type(2) {
+    flex: 1 1 45%;
+}
+
+/* Stack first two grid items on small screens */
+@media (max-width: 407px) {
+  section .grid:nth-of-type(1),
+  section .grid:nth-of-type(2) {
+    flex: 1 1 100%;
+  }
+}
+
+/*.grid-title { // For bottom-up (doesn't work)
+  direction: ltr; /* normal text direction */
+  align: left;
+}*/
 
 .grid-image img {
   /* height: 15vw;
@@ -152,6 +181,10 @@ section {
 .grid-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+}
+
+a {
+  color: #FFFFFF;
 }
 
 a:hover, .dpdwn {
@@ -193,13 +226,11 @@ a:hover, .dpdwn {
   display: block;
 }
 
-.content::-webkit-scrollbar {
-  background-color: #F5F5F5;
+.content::-webkit-scrollbar, .navigation::-webkit-scrollbar {
   width: 3.5px;  /* Vertical scrollbar width */
   height: 3.5px; /* Horizontal scrollbar height */
 }
 
-.content::-webkit-scrollbar-thumb {
-  background-color: #999999;
+.content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }

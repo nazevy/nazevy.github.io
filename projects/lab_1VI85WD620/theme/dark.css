@@ -1,0 +1,29 @@
+body {
+  color: #FFF;
+  background-color: #000;
+}
+
+.grid {
+  background-color: #17153B;
+}
+
+.navigation {
+  color: #FFF;
+  background-color: #17153B;
+}
+
+.navigation a:hover, .dpdwn:hover {
+  background-color: #575757;
+}
+
+#section0 {
+  background-color: #000;
+}
+
+.content::-webkit-scrollbar, .navigation::-webkit-scrollbar {
+  background-color: #000;
+}
+
+.content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
+  background-color: #FFF;
+}

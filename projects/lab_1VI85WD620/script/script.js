@@ -5,8 +5,21 @@ function changeTheme(color) {
   document.getElementById('theme').href = `../theme/${theme}.css`;
 }
 
-document.getElementById('nav-toggle')?.addEventListener('click', () => {
+// Function to handle click on the hamburger button
+document.getElementById('nav-toggle')?.addEventListener('click', (event) => {
+  event.stopPropagation(); // Prevent the click event from bubbling up to the document
   document.getElementById('navigation')?.classList.toggle('responsive');
+});
+
+// Event listener for clicks outside the navigation or hamburger button
+document.addEventListener('click', (event) => {
+  const nav = document.getElementById('navigation');
+  const navToggle = document.getElementById('nav-toggle');
+
+  // If the click was outside the hamburger or the menu, close the menu
+  if (nav && navToggle && !navToggle.contains(event.target) && !nav.contains(event.target)) {
+    nav.classList.remove('responsive');
+  }
 });
 
 // Set default theme based on OS preference
