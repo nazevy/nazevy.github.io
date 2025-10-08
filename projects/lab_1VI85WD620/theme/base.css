@@ -46,6 +46,10 @@ body {
   border-radius: 6px;
 }
 
+.arrow {
+  display: none;
+}
+
 /* Default: desktop, hide toggle area */
 .nav-toggle-area {
   display: none;
@@ -88,12 +92,13 @@ body {
   }
 
   .navigation .menu {
-//    display: none; /* Hide the menu by default on mobile */
+    display: none; /* Hide the menu by default on mobile */
     flex-direction: row;
   }
 
   .navigation.responsive .menu {
     display: flex; /* Show the menu when responsive class is added */
+    flex-direction: column;
   }
 
   .nav-toggle-area {
@@ -118,53 +123,50 @@ body {
   .nav-toggle-area {
     display: none;
   }
-    /* Wrapper that includes arrows + scroll menu */
-    .menu-scroll-wrapper {
-//      position: fixed;
-      bottom: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      width: 100vw;
-      z-index: 10;
-    }
-    /* Scrollable menu itself */
-    .menu-scroll {
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      display: flex;
-      flex: 1;
-    }
-    .menu-scroll a {
-      flex: 0 0 calc(100vw - 80px);
-      scroll-snap-align: start;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-    .menu-scroll a.active {
-      background-color: #ddd;
-      font-weight: bold;
-    }
-    /* Arrow buttons */
-    .arrow {
-      background: none;
-      border: none;
-      font-size: 2rem;
-      padding: 0 10px;
-      cursor: pointer;
-      color: #FFF;
-      z-index: 11;
-      display: flex;
-      align-items: center;
-    }
-    .arrow:active {
-      transform: scale(0.95);
-    }
+  .navigation .menu {
+    display: flex; /* Hide the menu by default on mobile */
+  }
+  /* Wrapper that includes arrows + scroll menu */
+  .menu-scroll-wrapper {
+    // position: fixed; bottom: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+  }
+  /* Scrollable menu itself */
+  .menu-scroll {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex: 1;
+  }
+  .menu-scroll a {
+    flex: 0 0 calc(100vw - 80px);
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+  /* Arrow buttons */
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #FFF;
+    z-index: 11;
+    display: flex;
+    align-items: center;
+  }
+  .arrow:active {
+    transform: scale(0.95);
+  }
 }
 
 .content, section {
@@ -177,9 +179,11 @@ body {
   justify-content: center;
   overflow-x: auto;
 }
+
 .content {
   flex: 1;  /* Allows the content div to grow and fill available space */
 }
+
 section {
   flex: 0 1 auto;
 }
@@ -191,7 +195,7 @@ section h2 {
 }
 
 .grid {
-  padding: 10px;
+  padding: 5px;
   /* grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
   flex: 1 1 clamp(180px, 25%, 300px);
   /* display: grid;  // For bottom-up (doesn't work)
@@ -200,7 +204,7 @@ section h2 {
   direction: rtl; */
 }
 
-/* Make first two grid items 50% each on wide screens */
+/* Make first two grid items 50% each on wide screens (Useless as last odd item will always be larger)
 section .grid:nth-of-type(1),
 section .grid:nth-of-type(2) {
     flex: 1 1 45%;
@@ -212,7 +216,7 @@ section .grid:nth-of-type(2) {
   section .grid:nth-of-type(2) {
     flex: 1 1 100%;
   }
-}
+}*/
 
 /*.grid-title { // For bottom-up (doesn't work)
   direction: ltr; /* normal text direction */
@@ -231,12 +235,6 @@ section .grid:nth-of-type(2) {
 .grid-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background-color: #17153B; /* Fallback solid color */
-  background-image: linear-gradient(to bottom, #0C0A1C 0%, #17153B 100%);
-}
-
-a {
-  color: #FFFFFF;
 }
 
 a:hover, .dpdwn {

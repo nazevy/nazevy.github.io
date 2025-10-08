@@ -27,3 +27,7 @@ body {
 .content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
   background-color: #999999;
 }
+
+a {
+  color: #FFFFFF;
+}
