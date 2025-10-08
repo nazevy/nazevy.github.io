@@ -70,7 +70,7 @@ body {
     display: inline-block; /* Show links inline on desktop */
   }
   .hamburger {
-    display: none; /* Hide hamburger on desktop */
+    display: flex; /* Hide hamburger on desktop */
   }
   .navigation .menu {
     display: flex; /* Ensure menu is visible on desktop */
@@ -88,8 +88,8 @@ body {
   }
 
   .navigation .menu {
-    display: none; /* Hide the menu by default on mobile */
-    flex-direction: column;
+//    display: none; /* Hide the menu by default on mobile */
+    flex-direction: row;
   }
 
   .navigation.responsive .menu {
@@ -115,6 +115,56 @@ body {
   .navigation {
     flex-direction: column-reverse;
   }
+  .nav-toggle-area {
+    display: none;
+  }
+    /* Wrapper that includes arrows + scroll menu */
+    .menu-scroll-wrapper {
+//      position: fixed;
+      bottom: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100vw;
+      z-index: 10;
+    }
+    /* Scrollable menu itself */
+    .menu-scroll {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex: 1;
+    }
+    .menu-scroll a {
+      flex: 0 0 calc(100vw - 80px);
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .menu-scroll a.active {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+    /* Arrow buttons */
+    .arrow {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      padding: 0 10px;
+      cursor: pointer;
+      color: #FFF;
+      z-index: 11;
+      display: flex;
+      align-items: center;
+    }
+    .arrow:active {
+      transform: scale(0.95);
+    }
 }
 
 .content, section {
@@ -137,7 +187,7 @@ section {
 section h2 {
   width: 100%;  /* Ensures the title spans the entire width of the section */
   text-align: center; /* Optional: Aligns the title text */
-  margin: 0;
+  margin: 25px 0 0;
 }
 
 .grid {
@@ -181,6 +231,8 @@ section .grid:nth-of-type(2) {
 .grid-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+  background-color: #17153B; /* Fallback solid color */
+  background-image: linear-gradient(to bottom, #0C0A1C 0%, #17153B 100%);
 }
 
 a {
