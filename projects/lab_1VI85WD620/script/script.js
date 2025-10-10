@@ -5,6 +5,9 @@ function changeTheme(color) {
   document.getElementById('theme').href = `../theme/${theme}.css`;
 }
 
+const nav = document.getElementById('navigation');
+const navToggle = document.getElementById('nav-toggle');
+
 // Function to handle click on the hamburger button
 document.getElementById('nav-toggle')?.addEventListener('click', (event) => {
   event.stopPropagation(); // Prevent the click event from bubbling up to the document
@@ -13,14 +16,34 @@ document.getElementById('nav-toggle')?.addEventListener('click', (event) => {
 
 // Event listener for clicks outside the navigation or hamburger button
 document.addEventListener('click', (event) => {
-  const nav = document.getElementById('navigation');
-  const navToggle = document.getElementById('nav-toggle');
 
   // If the click was outside the hamburger or the menu, close the menu
   if (nav && navToggle && !navToggle.contains(event.target) && !nav.contains(event.target)) {
     nav.classList.remove('responsive');
   }
 });
+
+// ✅ NEW: Reset toggle state when leaving tablet view
+function handleResize() {
+  const width = window.innerWidth;
+  const nav = document.getElementById('navigation');
+
+  // If width is outside tablet range, remove 'responsive' class
+  if (nav && (width < 768 || width > 1024)) {
+    nav.classList.remove('responsive');
+  }
+}
+
+// Initial check (in case page loads outside tablet view with menu open)
+handleResize();
+
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(handleResize, 150);
+});
+
+
 
 // Set default theme based on OS preference
 changeTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default');
@@ -40,6 +63,7 @@ document.addEventListener('click', () => {
 });
 
 // Trial Bottom-Menu Scroll
+window.addEventListener('DOMContentLoaded', () => {
     const scrollContainer = document.querySelector('.menu-scroll');
     const links = document.querySelectorAll('.menu-scroll a');
     const sections = document.querySelectorAll('section');
@@ -57,7 +81,7 @@ document.addEventListener('click', () => {
           const targetId = links[index].getAttribute('href');
           if (window.location.hash !== targetId) {
             isMenuScrolling = true;
-            links[index].click();
+            // links[index].click(); // simulates auto-click on scroll
             setTimeout(() => { isMenuScrolling = false; }, 300);
           }
         }
@@ -69,7 +93,7 @@ document.addEventListener('click', () => {
       if (isMenuScrolling) return;
       
       entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+        if (entry.isIntersecting) { // && entry.intersectionRatio > 0.5
           const id = entry.target.getAttribute('id');
           const activeLink = document.querySelector(`.menu-scroll a[href="#${id}"]`);
           
@@ -86,11 +110,28 @@ document.addEventListener('click', () => {
         }
       });
     }, {
-      threshold: [0.5],
+      threshold: [0.1],
       rootMargin: '-40px 0px -40px 0px'
     });
 
     sections.forEach(section => observer.observe(section));
+
+// Test code
+/*const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      console.log('Now visible:', entry.target.id);
+    }
+  });
+}, {
+  threshold: [0.1]
+});
+
+sections.forEach(section => observer.observe(section));*/
+
+// console.log('Observing section:', section); // Test code
+// console.log('Sections found:', sections.length); // Test code
+
 
     // Arrow button handlers
     document.querySelector('.arrow.left').addEventListener('click', () => {
@@ -100,3 +141,6 @@ document.addEventListener('click', () => {
       scrollContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
     });
 
+console.log('isMenuScrolling:', isMenuScrolling);
+
+});

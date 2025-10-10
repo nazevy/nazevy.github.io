@@ -36,3 +36,11 @@ body {
 a {
   color: #FFFFFF;
 }
+
+.blur-top {
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+.blur-bottom {
+  background: linear-gradient(to top, white, transparent);
+}
