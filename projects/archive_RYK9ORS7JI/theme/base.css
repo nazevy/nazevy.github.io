@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: Menlo, Consolas, "Lucida Console", "Courier New", monospace;
@@ -50,30 +46,6 @@ body {
   border-radius: 6px;
 }
 
-.blur-top,
-.blur-bottom {
-  position: sticky;
-  left: 0;
-  right: 0;
-  height: 40px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.blur-top {
-  top: 0;
-  // background: linear-gradient(to bottom, white, transparent);
-}
-
-.blur-bottom {
-  bottom: 0;
-  // background: linear-gradient(to top, white, transparent);
-}
-
-.arrow {
-  display: none;
-}
-
 /* Default: desktop, hide toggle area */
 .nav-toggle-area {
   display: none;
@@ -98,7 +70,7 @@ body {
     display: inline-block; /* Show links inline on desktop */
   }
   .hamburger {
-    display: flex; /* Hide hamburger on desktop */
+    display: none; /* Hide hamburger on desktop */
   }
   .navigation .menu {
     display: flex; /* Ensure menu is visible on desktop */
@@ -117,12 +89,11 @@ body {
 
   .navigation .menu {
     display: none; /* Hide the menu by default on mobile */
-    flex-direction: row;
+    flex-direction: column;
   }
 
   .navigation.responsive .menu {
     display: flex; /* Show the menu when responsive class is added */
-    flex-direction: column;
   }
 
   .nav-toggle-area {
@@ -144,54 +115,6 @@ body {
   .navigation {
     flex-direction: column-reverse;
   }
-  .nav-toggle-area {
-    display: none;
-  }
-  .navigation .menu {
-    display: flex; /* Hide the menu by default on mobile */
-  }
-  /* Wrapper that includes arrows + scroll menu */
-  .menu-scroll-wrapper {
-    // position: fixed; bottom: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 10;
-  }
-  /* Scrollable menu itself */
-  .menu-scroll {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    flex: 1;
-  }
-  .menu-scroll a {
-    flex: 0 0 calc(100vw - 80px);
-    scroll-snap-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    text-align: center;
-    transition: background-color 0.3s;
-  }
-  /* Arrow buttons */
-  .arrow {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    padding: 0 10px;
-    cursor: pointer;
-    color: #FFF;
-    z-index: 11;
-    display: flex;
-    align-items: center;
-  }
-  .arrow:active {
-    transform: scale(0.95);
-  }
 }
 
 .content, section {
@@ -204,48 +127,45 @@ body {
   justify-content: center;
   overflow-x: auto;
 }
-
 .content {
   flex: 1;  /* Allows the content div to grow and fill available space */
 }
-
 section {
   flex: 0 1 auto;
-  max-width: 2000px;
 }
 
 section h2 {
   width: 100%;  /* Ensures the title spans the entire width of the section */
   text-align: center; /* Optional: Aligns the title text */
-  margin: 25px 0 0;
-  overflow: auto;
+  margin: 0;
 }
 
 .grid {
-  padding: 5px;
-  // flex: 1 1 clamp(180px, 25%, 300px);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  /* grid-auto-flow: row dense;
+  padding: 10px;
+  /* grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); */
+  flex: 1 1 clamp(180px, 25%, 300px);
+  /* display: grid;  // For bottom-up (doesn't work)
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-flow: row dense;
   direction: rtl; */
 }
 
-/* Make first two grid items 50% each on wide screens (Useless as last odd item will always be larger)
+/* Make first two grid items 50% each on wide screens */
 section .grid:nth-of-type(1),
 section .grid:nth-of-type(2) {
     flex: 1 1 45%;
 }
 
-// Stack first two grid items on small screens
-/*@media (max-width: 407px) {
+/* Stack first two grid items on small screens */
+@media (max-width: 407px) {
   section .grid:nth-of-type(1),
   section .grid:nth-of-type(2) {
     flex: 1 1 100%;
   }
-}*/
+}
 
 /*.grid-title { // For bottom-up (doesn't work)
-  direction: ltr; // normal text direction
+  direction: ltr; /* normal text direction */
   align: left;
 }*/
 
@@ -253,7 +173,7 @@ section .grid:nth-of-type(2) {
   /* height: 15vw;
   min-height: 22vh; */
   width: 100%;
-  // height: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
@@ -261,6 +181,10 @@ section .grid:nth-of-type(2) {
 .grid-image {
   aspect-ratio: 16 / 9;
   overflow: hidden;
+}
+
+a {
+  color: #FFFFFF;
 }
 
 a:hover, .dpdwn {
