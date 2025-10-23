@@ -47,7 +47,7 @@ body {
 }
 
 .navigation a:hover, .dpdwn:hover {
-  border-radius: 6px;
+  border-radius: 4px;
 }
 
 .blur-top,
@@ -314,7 +314,6 @@ a:hover, .dpdwn {
 .copyright {
   width: 100dvw;
   max-width: 2000px;
-  border-radius: 10px;
   display: flex;
   justify-content: center;
   padding: 5px;
