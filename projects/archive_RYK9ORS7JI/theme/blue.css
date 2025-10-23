@@ -1,0 +1,23 @@
+.blue {
+  background-color: #90D5FF;
+}
+
+.blue .grid {
+  padding: 0;
+}
+
+.blue .grid-title {
+  padding: 10px;
+}
+
+.navigation a:hover, .dpdwn:hover {
+  background-color: #575757;
+}
+
+.content::-webkit-scrollbar, .navigation::-webkit-scrollbar {
+  background-color: #F5F5F5;
+}
+
+.content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
+  background-color: #999999;
+}

@@ -37,10 +37,15 @@ a {
   color: #FFFFFF;
 }
 
-.blur-top {
+/*.blur-top {
   background: linear-gradient(to bottom, white, transparent);
 }
 
 .blur-bottom {
   background: linear-gradient(to top, white, transparent);
+}*/
+
+.copyright {
+  background: #17153B;
+  color: #FFF;
 }

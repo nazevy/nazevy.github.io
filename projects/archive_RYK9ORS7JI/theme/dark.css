@@ -13,7 +13,7 @@ body {
 }
 
 .navigation a:hover, .dpdwn:hover {
-  background-color: #575757;
+  background-color: #0C0A1C;
 }
 
 #section0 {
@@ -26,4 +26,21 @@ body {
 
 .content::-webkit-scrollbar-thumb, .navigation::-webkit-scrollbar-thumb {
   background-color: #FFF;
+}
+
+.grid-image {
+  background-color: #17153B; /* Fallback solid color */
+  background-image: linear-gradient(to bottom, #0C0A1C 0%, #17153B 100%);
+}
+
+a {
+  color: #FFFFFF;
+}
+
+.blur-top {
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+.blur-bottom {
+  background: linear-gradient(to top, white, transparent);
 }

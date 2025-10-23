@@ -39,3 +39,8 @@ a {
 .blur-bottom {
   background: linear-gradient(to top, white, transparent);
 }
+
+.copyright {
+  background: #333;
+  color: #FFF;
+}

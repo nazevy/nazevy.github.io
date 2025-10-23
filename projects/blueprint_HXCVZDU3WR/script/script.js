@@ -23,7 +23,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// ✅ NEW: Reset toggle state when leaving tablet view
+// NEW: Reset toggle state when leaving tablet view
 function handleResize() {
   const width = window.innerWidth;
   const nav = document.getElementById('navigation');
@@ -144,3 +144,33 @@ sections.forEach(section => observer.observe(section));*/
 console.log('isMenuScrolling:', isMenuScrolling);
 
 });
+
+
+const section = document.getElementById('content');
+
+function updateMask() {
+  const atTop = section.scrollTop === 0;
+  const atBottom = section.scrollHeight - section.scrollTop <= section.clientHeight + 1;
+
+  if (atTop && atBottom) {
+    // Content doesn't overflow, remove mask entirely
+    section.style.maskImage = 'none';
+    section.style.webkitMaskImage = 'none';
+  } else if (atTop) {
+    // Remove top blur
+    section.style.maskImage = 'linear-gradient(to bottom, black 0%, black 90%, transparent)';
+    section.style.webkitMaskImage = 'linear-gradient(to bottom, black 0%, black 90%, transparent)';
+  } else if (atBottom) {
+    // Remove bottom blur
+    section.style.maskImage = 'linear-gradient(to bottom, transparent, black 10%, black 100%)';
+    section.style.webkitMaskImage = 'linear-gradient(to bottom, transparent, black 10%, black 100%)';
+  } else {
+    // Apply full blur
+    section.style.maskImage = 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)';
+    section.style.webkitMaskImage = 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)';
+  }
+}
+
+// Attach event
+section.addEventListener('scroll', updateMask);
+window.addEventListener('load', updateMask); // initial check

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Swipeable Navigation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      font-family: sans-serif;
+      height: 100dvh;
+    }
+    /* Wrapper that includes arrows + scroll menu */
+    .menu-scroll-wrapper {
+      position: fixed;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100vw;
+      background: #f0f0f0;
+      border-top: 1px solid #ccc;
+      z-index: 10;
+    }
+    /* Scrollable menu itself */
+    .menu-scroll {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      flex: 1;
+    }
+    .menu-scroll a {
+      flex: 0 0 calc(100vw - 80px);
+      scroll-snap-align: start;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      text-decoration: none;
+      font-size: 2rem;
+      background-color: #f0f0f0;
+      border-right: 1px solid #ddd;
+      color: #333;
+      transition: background-color 0.3s;
+    }
+    .menu-scroll a.active {
+      background-color: #ddd;
+      font-weight: bold;
+    }
+    /* Arrow buttons */
+    .arrow {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      padding: 0 10px;
+      cursor: pointer;
+      color: #333;
+      z-index: 11;
+      height: 80px;
+      display: flex;
+      align-items: center;
+    }
+    .arrow:active {
+      transform: scale(0.95);
+    }
+    /* Page Sections */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      scroll-margin-top: 0px;
+    }
+    #section0 { background-color: #ffefd5; }
+    #section1 { background-color: #add8e6; }
+    #section2 { background-color: #90ee90; }
+    #section3 { background-color: #f08080; }
+  </style>
+</head>
+<body>
+  <!-- Scrollable Navigation -->
+  <div class="menu-scroll-wrapper">
+    <button class="arrow left" aria-label="Scroll Left">&#8249;</button>
+    <div class="menu-scroll">
+      <a href="#section0">About</a>
+      <a href="#section1">Section 1</a>
+      <a href="#section2">Section 2</a>
+      <a href="#section3">Section 3</a>
+    </div>
+    <button class="arrow right" aria-label="Scroll Right">&#8250;</button>
+  </div>
+  <!-- Page Sections -->
+  <section id="section0">About Section</section>
+  <section id="section1">Section 1</section>
+  <section id="section2">Section 2</section>
+  <section id="section3">Section 3</section>
+  <script>
+    const scrollContainer = document.querySelector('.menu-scroll');
+    const links = document.querySelectorAll('.menu-scroll a');
+    const sections = document.querySelectorAll('section');
+    let scrollTimeout;
+    let isMenuScrolling = false;
+
+    // Sync menu scroll to page section navigation
+    scrollContainer.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const scrollLeft = scrollContainer.scrollLeft;
+        const viewportWidth = scrollContainer.offsetWidth;
+        const index = Math.round(scrollLeft / viewportWidth);
+        if (links[index]) {
+          const targetId = links[index].getAttribute('href');
+          if (window.location.hash !== targetId) {
+            isMenuScrolling = true;
+            links[index].click();
+            setTimeout(() => { isMenuScrolling = false; }, 300);
+          }
+        }
+      }, 100);
+    });
+
+    // Sync page scroll to menu position
+    const observer = new IntersectionObserver((entries) => {
+      if (isMenuScrolling) return;
+      
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          const id = entry.target.getAttribute('id');
+          const activeLink = document.querySelector(`.menu-scroll a[href="#${id}"]`);
+          
+          if (activeLink) {
+            // Update active state
+            links.forEach(link => link.classList.remove('active'));
+            activeLink.classList.add('active');
+            
+            // Scroll menu to show active item
+            const linkIndex = Array.from(links).indexOf(activeLink);
+            const targetScroll = linkIndex * scrollContainer.offsetWidth;
+            scrollContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+          }
+        }
+      });
+    }, {
+      threshold: [0.5],
+      rootMargin: '-40px 0px -40px 0px'
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Arrow button handlers
+    document.querySelector('.arrow.left').addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    });
+    document.querySelector('.arrow.right').addEventListener('click', () => {
+      scrollContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
