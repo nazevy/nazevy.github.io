@@ -178,6 +178,8 @@ body {
     z-index: 11;
     display: flex;
     align-items: center;
+    position: relative;
+    top: -1px;
   }
   .arrow:active {
     transform: scale(0.95);
@@ -189,7 +191,7 @@ body {
 
 .content, section {
   display: flex;
-  margin: 0 7 7;
+  margin: 4 4 4;
   flex-wrap: wrap;
   column-gap: clamp(1rem, 2vw, 2rem);
   row-gap: clamp(0.75rem, 2vw, 2rem);
@@ -318,8 +320,8 @@ a:hover, .dpdwn {
   padding: 5px;
   // margin-bottom: 25px;
   /* Fading edges */
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 30%, black 70%, transparent);
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }

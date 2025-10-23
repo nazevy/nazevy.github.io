@@ -166,8 +166,8 @@ function updateMask() {
     section.style.webkitMaskImage = 'linear-gradient(to bottom, transparent, black 10%, black 100%)';
   } else {
     // Apply full blur
-    section.style.maskImage = 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)';
-    section.style.webkitMaskImage = 'linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)';
+    section.style.maskImage = 'linear-gradient(to bottom, transparent, black 4%, black 96%, transparent)';
+    section.style.webkitMaskImage = 'linear-gradient(to bottom, transparent, black 4%, black 96%, transparent)';
   }
 }
 
